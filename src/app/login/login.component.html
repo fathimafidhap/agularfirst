@@ -1,0 +1,42 @@
+<!-- <img src="/assets/bank3.jpeg"> -->
+
+<div class="mb-3">
+    <div class="container">
+
+        <div class="main">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        <h1 style="color: white;"><b><i>LOGIN SBN BANK</i></b></h1>
+
+
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <label for="exampleInputEmail1" style="color:white" class="form-label"><b>User name<span class="required">*</span></b></label>
+                <input formControlName="username" name="username" type="text" class="form-control" id="username">
+
+                <label for="" *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.required" style="color:red;">username is required</label>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" style="color:white" class="form-label"><b>Password*</b></label>
+                    <input formControlName="password" name="password" type="password" class="form-control"
+                        id="password">
+
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors">
+                        <label *ngIf="loginForm.get('password')?.errors?.required" style="color:red;">password is
+                            required</label>
+                        <label  *ngIf="loginForm.get('password')?.errors?.minlength" style="color:red;">password
+                            must be atleast 5 characters</label>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn-btn-primary"  >login</button>
+                <!-- <button type="button"class="btn-btn-primary" onclick="Bank.withdrawal()">withdrawal</button> -->
+            </form>
+        </div>
+    </div>
+</div>
